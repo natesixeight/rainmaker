@@ -25,10 +25,10 @@
     #searchBar {
       width: 100%;
       max-width: 600px;
-      padding: 10px 15px;
+      padding: 8px 12px; /* Reduced padding */
       border: 1px solid #ccc;
       border-radius: 20px;
-      font-size: 16px;
+      font-size: 14px; /* Reduced font size */
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: box-shadow 0.3s;
     }
@@ -46,9 +46,10 @@
       overflow: hidden;
     }
     th, td {
-      padding: 12px 15px;
+      padding: 8px 12px; /* Reduced padding */
       text-align: left;
       border: none;
+      font-size: 14px; /* Reduced font size */
     }
     th {
       background-color: #3f51b5;
@@ -62,74 +63,4 @@
     tr:nth-child(even) {
       background-color: #e8eaf6;
     }
-    tr:nth-child(odd) {
-      background-color: #ffffff;
-    }
-    tr:hover {
-      background-color: #c5cbe8;
-      transition: background-color 0.2s;
-    }
-    img {
-      max-width: 100px;
-      height: auto;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    a {
-      color: #3f51b5;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    #loadingBarContainer {
-      width: 100%;
-      max-width: 600px;
-      height: 10px;
-      background-color: #ddd;
-      border-radius: 5px;
-      margin-top: 10px;
-      overflow: hidden;
-      display: none; /* Hidden by default */
-    }
-    #loadingBar {
-      height: 100%;
-      width: 0;
-      background-color: #4caf50;
-      transition: width 0.4s ease-in-out;
-    }
-  </style>
-</head>
-<body>
-  <h1>Rainmaker Inventory</h1>
-  <div class="controls">
-    <input type="text" id="searchBar" placeholder="Search for items...">
-    <div id="loadingBarContainer">
-      <div id="loadingBar"></div>
-    </div>
-  </div>
-  
-  <input type="file" id="csvFile" accept=".csv" style="display: none;">
-  <label for="csvFile" style="cursor: pointer; display: block; text-align: center; margin-bottom: 20px; font-weight: bold; color: #3f51b5;">
-    Click here to select Rainmaker.csv
-  </label>
-
-  <table id="rainmakerTable">
-    <thead>
-      <tr>
-        <th>Index</th>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Type</th>
-        <th>Item Link</th>
-        <th>Thumbnail</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    tr:nth-child(
