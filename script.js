@@ -40,9 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const [index, url, pictureUrl, desc, amount, type] = columns;
                 const tr = document.createElement('tr');
                 
-                // Add a data attribute to the row for the picture URL
-                tr.dataset.pictureUrl = pictureUrl;
-                
                 tr.innerHTML = `
                     <td>${desc}</td>
                     <td>${amount}</td>
@@ -61,32 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const imageUrl = imageElement.src;
                     const description = imageElement.alt;
                     
-                    // Create a form to programmatically submit the image URL to Google
-                    const form = document.createElement('form');
-                    form.action = 'https://www.google.com/searchbyimage/upload';
-                    form.method = 'post';
-                    form.target = '_blank';
-                    form.enctype = 'multipart/form-data';
+                    // Use a direct Google Lens URL with the 'url' and 'q' parameters
+                    const lensUrl = `https://lens.google.com/uploadbyurl?url=${encodeURIComponent(imageUrl)}&q=${encodeURIComponent(description)}`;
                     
-                    // Hidden input for the image URL
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = 'image_url';
-                    input.value = imageUrl;
-                    
-                    // Hidden input for the supplemental query
-                    const queryInput = document.createElement('input');
-                    queryInput.type = 'hidden';
-                    queryInput.name = 'q';
-                    queryInput.value = description;
-
-                    form.appendChild(input);
-                    form.appendChild(queryInput);
-                    
-                    // Temporarily add the form to the document, submit it, and then remove it
-                    document.body.appendChild(form);
-                    form.submit();
-                    document.body.removeChild(form);
+                    window.open(lensUrl, '_blank');
                 });
             }
         }
