@@ -50,10 +50,10 @@
       white-space: nowrap;
     }
     th, td {
-      padding: 10px 12px; /* Reduced padding for more compact text */
+      padding: 10px 12px;
       text-align: left;
       border: none;
-      font-size: 14px; /* Reduced font size for more compact text */
+      font-size: 14px;
     }
     th {
       background-color: #3f51b5;
@@ -84,13 +84,13 @@
     }
     .link-button {
       display: inline-block;
-      padding: 6px 12px; /* Reduced padding for a more compact button */
+      padding: 6px 12px;
       background-color: #3f51b5;
       color: white;
       text-decoration: none;
       border-radius: 20px;
       font-weight: bold;
-      font-size: 14px; /* Reduced font size for the button */
+      font-size: 14px;
       transition: background-color 0.3s, transform 0.2s;
     }
     .link-button:hover {
@@ -124,27 +124,27 @@
         display: none;
       }
       tr {
-        margin-bottom: 10px; /* Reduced margin */
+        margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        padding: 8px; /* Reduced padding */
+        padding: 8px;
       }
       td {
         border: none;
         position: relative;
-        padding: 5px; /* Reduced padding */
+        padding: 5px;
         text-align: left;
         display: block;
         white-space: normal;
-        font-size: 14px; /* Reduced font size */
+        font-size: 14px;
       }
       td:before {
         content: attr(data-label);
         font-weight: bold;
         color: #3f51b5;
         display: block;
-        font-size: 12px; /* Reduced label font size */
+        font-size: 12px;
       }
       td.thumbnail-cell {
         text-align: center;
@@ -152,7 +152,7 @@
     }
     /* Specific styling for the description column */
     .description-cell {
-      font-weight: 500; /* Bolder font weight */
+      font-weight: 500;
     }
   </style>
 </head>
@@ -179,14 +179,22 @@
     </thead>
     <tbody>
       <tr>
-        <td data-label="Thumbnail" class="thumbnail-cell"><img src="https://via.placeholder.com/100" alt="Item Thumbnail"></td>
+        <td data-label="Thumbnail" class="thumbnail-cell">
+          <a href="https://lens.google.com/upload?url=https://via.placeholder.com/100&text=Example%20Item%201:%20This%20is%20a%20longer%20description%20to%20show%20how%20the%20text%20will%20wrap%20correctly%20on%20a%20mobile%20screen.%20It%20provides%20more%20detail%20about%20the%20product%20and%20ensures%20readability%20without%20being%20cut%20off." target="_blank">
+            <img src="https://via.placeholder.com/100" alt="Item Thumbnail">
+          </a>
+        </td>
         <td data-label="Description" class="description-cell">Example Item 1: This is a longer description to show how the text will wrap correctly on a mobile screen. It provides more detail about the product and ensures readability without being cut off.</td>
         <td data-label="Amount">$19.99</td>
         <td data-label="Type">Electronics</td>
         <td data-label="Item Link"><a href="#" class="link-button">View Site</a></td>
       </tr>
       <tr>
-        <td data-label="Thumbnail" class="thumbnail-cell"><img src="https://via.placeholder.com/100" alt="Item Thumbnail"></td>
+        <td data-label="Thumbnail" class="thumbnail-cell">
+          <a href="https://lens.google.com/upload?url=https://via.placeholder.com/100&text=Example%20Item%202:%20Another%20item%20with%20a%20slightly%20shorter%20description%20for%20comparison." target="_blank">
+            <img src="https://via.placeholder.com/100" alt="Item Thumbnail">
+          </a>
+        </td>
         <td data-label="Description" class="description-cell">Example Item 2: Another item with a slightly shorter description for comparison.</td>
         <td data-label="Amount">$29.99</td>
         <td data-label="Type">Books</td>
