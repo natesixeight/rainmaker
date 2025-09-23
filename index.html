@@ -112,7 +112,7 @@
       background-color: #4caf50;
       transition: width 0.4s ease-in-out;
     }
-    
+
     /* Media queries for improved mobile layout */
     @media (max-width: 768px) {
       table, thead, tbody, th, td, tr {
@@ -126,21 +126,21 @@
         border: 1px solid #ccc;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        padding: 10px; /* Add padding to prevent content from touching the edges */
+        padding: 10px;
       }
       td {
         border: none;
         position: relative;
-        padding-left: 0; /* Set padding-left to 0 */
-        text-align: left; /* Align text to the left */
-        display: block; /* Ensure each cell takes its own line */
-        white-space: normal; /* Allow text to wrap */
+        padding-left: 0;
+        text-align: left;
+        display: block;
+        white-space: normal;
       }
       td:before {
         content: attr(data-label);
         font-weight: bold;
         color: #3f51b5;
-        display: block; /* Make the label a block element for better separation */
+        display: block;
       }
       td.thumbnail-cell {
         text-align: center;
