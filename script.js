@@ -57,10 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add a click event listener to the image
 imageElement.addEventListener('click', () => {
     const imageUrl = imageElement.src;
-    const description = imageElement.alt;
     
-    // Construct the Google image search URL with the image URL and description
-    const googleSearchUrl = `https://www.google.com/search?tbs=sbi:AMh-eK_1${encodeURIComponent(imageUrl)}&q=${encodeURIComponent(description)}`;
+    // Construct a direct Google Images search URL
+    const googleSearchUrl = `https://www.google.com/search?q=site:your-site.com&tbm=isch&tbs=sbi:AMh-eK_1${encodeURIComponent(imageUrl)}`;
+
+    // Open the URL in a new tab
+    window.open(googleSearchUrl, '_blank');
+});
+
 
     // Open the URL in a new tab
     window.open(googleSearchUrl, '_blank');
