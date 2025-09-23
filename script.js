@@ -55,13 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 const imageElement = tr.querySelector('img');
 
                 // Add a click event listener to the image
-                imageElement.addEventListener('click', () => {
-                    const lensUrl = `https://lens.google.com/search?p=${encodeURIComponent(imageElement.src)}&q=${encodeURIComponent(imageElement.alt)}`;
-                    window.open(lensUrl, '_blank');
-                });
-            }
-        }
-    }
+imageElement.addEventListener('click', () => {
+    const imageUrl = imageElement.src;
+    const description = imageElement.alt;
+    
+    // Construct the Google image search URL with the image URL and description
+    const googleSearchUrl = `https://www.google.com/search?tbs=sbi:AMh-eK_1${encodeURIComponent(imageUrl)}&q=${encodeURIComponent(description)}`;
+
+    // Open the URL in a new tab
+    window.open(googleSearchUrl, '_blank');
+});
+
 
     // Function to filter the table based on search terms
     function filterTable(searchTerm) {
