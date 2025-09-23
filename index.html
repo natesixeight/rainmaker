@@ -50,9 +50,10 @@
       white-space: nowrap;
     }
     th, td {
-      padding: 12px 15px;
+      padding: 10px 12px; /* Reduced padding for more compact text */
       text-align: left;
       border: none;
+      font-size: 14px; /* Reduced font size for more compact text */
     }
     th {
       background-color: #3f51b5;
@@ -83,12 +84,13 @@
     }
     .link-button {
       display: inline-block;
-      padding: 8px 16px;
+      padding: 6px 12px; /* Reduced padding for a more compact button */
       background-color: #3f51b5;
       color: white;
       text-decoration: none;
       border-radius: 20px;
       font-weight: bold;
+      font-size: 14px; /* Reduced font size for the button */
       transition: background-color 0.3s, transform 0.2s;
     }
     .link-button:hover {
@@ -122,29 +124,35 @@
         display: none;
       }
       tr {
-        margin-bottom: 15px;
+        margin-bottom: 10px; /* Reduced margin */
         border: 1px solid #ccc;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        padding: 10px;
+        padding: 8px; /* Reduced padding */
       }
       td {
         border: none;
         position: relative;
-        padding-left: 0;
+        padding: 5px; /* Reduced padding */
         text-align: left;
         display: block;
         white-space: normal;
+        font-size: 14px; /* Reduced font size */
       }
       td:before {
         content: attr(data-label);
         font-weight: bold;
         color: #3f51b5;
         display: block;
+        font-size: 12px; /* Reduced label font size */
       }
       td.thumbnail-cell {
         text-align: center;
       }
+    }
+    /* Specific styling for the description column */
+    .description-cell {
+      font-weight: 500; /* Bolder font weight */
     }
   </style>
 </head>
@@ -172,14 +180,14 @@
     <tbody>
       <tr>
         <td data-label="Thumbnail" class="thumbnail-cell"><img src="https://via.placeholder.com/100" alt="Item Thumbnail"></td>
-        <td data-label="Description">Example Item 1: This is a longer description to show how the text will wrap correctly on a mobile screen. It provides more detail about the product and ensures readability without being cut off.</td>
+        <td data-label="Description" class="description-cell">Example Item 1: This is a longer description to show how the text will wrap correctly on a mobile screen. It provides more detail about the product and ensures readability without being cut off.</td>
         <td data-label="Amount">$19.99</td>
         <td data-label="Type">Electronics</td>
         <td data-label="Item Link"><a href="#" class="link-button">View Site</a></td>
       </tr>
       <tr>
         <td data-label="Thumbnail" class="thumbnail-cell"><img src="https://via.placeholder.com/100" alt="Item Thumbnail"></td>
-        <td data-label="Description">Example Item 2: Another item with a slightly shorter description for comparison.</td>
+        <td data-label="Description" class="description-cell">Example Item 2: Another item with a slightly shorter description for comparison.</td>
         <td data-label="Amount">$29.99</td>
         <td data-label="Type">Books</td>
         <td data-label="Item Link"><a href="#" class="link-button">View Site</a></td>
