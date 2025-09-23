@@ -66,9 +66,7 @@ imageElement.addEventListener('click', () => {
 });
 
 
-    // Open the URL in a new tab
-    window.open(googleSearchUrl, '_blank');
-});
+
 
 
     // Function to filter the table based on search terms
