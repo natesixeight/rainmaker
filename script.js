@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (columns.length >= 6) {
         const [index, url, pictureUrl, desc, amount, type] = columns;
         const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${index}</td>
+        tr.innerHTML = `
           <td>${desc}</td>
           <td>${amount}</td>
           <td>${type}</td>
