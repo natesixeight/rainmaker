@@ -45,9 +45,9 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       border-radius: 8px;
       overflow: hidden;
-      display: block; /* Make the table a block element */
-      overflow-x: auto; /* Enable horizontal scrolling */
-      white-space: nowrap; /* Prevent wrapping */
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
     }
     th, td {
       padding: 12px 15px;
@@ -74,9 +74,9 @@
       transition: background-color 0.2s;
     }
     img {
-      width: 100px; /* Set a fixed width for all images */
-      height: 100px; /* Set a fixed height for all images */
-      object-fit: cover; /* Maintain aspect ratio and crop */
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
       border-radius: 4px;
       border: 1px solid #ccc;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -104,7 +104,7 @@
       border-radius: 5px;
       margin-top: 10px;
       overflow: hidden;
-      display: none; /* Hidden by default */
+      display: none;
     }
     #loadingBar {
       height: 100%;
@@ -112,43 +112,38 @@
       background-color: #4caf50;
       transition: width 0.4s ease-in-out;
     }
-
+    
     /* Media queries for improved mobile layout */
     @media (max-width: 768px) {
-      table, thead, tbody, th, td, tr { 
-        display: block; /* Make table elements display as blocks */
+      table, thead, tbody, th, td, tr {
+        display: block;
       }
       thead {
-        display: none; /* Hide the table header on mobile */
+        display: none;
       }
       tr {
-        margin-bottom: 15px; /* Add space between rows */
+        margin-bottom: 15px;
         border: 1px solid #ccc;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 10px; /* Add padding to prevent content from touching the edges */
       }
       td {
         border: none;
         position: relative;
-        padding-left: 50%;
-        text-align: right;
+        padding-left: 0; /* Set padding-left to 0 */
+        text-align: left; /* Align text to the left */
+        display: block; /* Ensure each cell takes its own line */
+        white-space: normal; /* Allow text to wrap */
       }
       td:before {
-        content: attr(data-label); /* Use data-label for a 'label' on each row */
-        position: absolute;
-        left: 0;
-        width: 45%;
-        padding-left: 15px;
-        white-space: nowrap;
-        text-align: left;
+        content: attr(data-label);
         font-weight: bold;
         color: #3f51b5;
+        display: block; /* Make the label a block element for better separation */
       }
       td.thumbnail-cell {
         text-align: center;
-        padding-left: 0;
-        width: 100%;
-        display: block;
       }
     }
   </style>
@@ -177,19 +172,19 @@
     <tbody>
       <tr>
         <td data-label="Thumbnail" class="thumbnail-cell"><img src="https://via.placeholder.com/100" alt="Item Thumbnail"></td>
-        <td data-label="Description">Example Item 1</td>
+        <td data-label="Description">Example Item 1: This is a longer description to show how the text will wrap correctly on a mobile screen. It provides more detail about the product and ensures readability without being cut off.</td>
         <td data-label="Amount">$19.99</td>
         <td data-label="Type">Electronics</td>
         <td data-label="Item Link"><a href="#" class="link-button">View Site</a></td>
       </tr>
       <tr>
         <td data-label="Thumbnail" class="thumbnail-cell"><img src="https://via.placeholder.com/100" alt="Item Thumbnail"></td>
-        <td data-label="Description">Example Item 2</td>
+        <td data-label="Description">Example Item 2: Another item with a slightly shorter description for comparison.</td>
         <td data-label="Amount">$29.99</td>
         <td data-label="Type">Books</td>
         <td data-label="Item Link"><a href="#" class="link-button">View Site</a></td>
       </tr>
-      </tbody>
+    </tbody>
   </table>
 
   <script src="script.js"></script>
