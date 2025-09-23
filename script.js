@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch and display the CSV data
     async function loadCSV() {
         try {
-            const response = await fetch('rainmaker.csv'); // Use relative path if in same folder
+            const response = await fetch('rainmaker.csv');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -40,34 +40,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 const [index, url, pictureUrl, desc, amount, type] = columns;
                 const tr = document.createElement('tr');
                 
+                // Add a data attribute to the row for the picture URL
+                tr.dataset.pictureUrl = pictureUrl;
+                
                 tr.innerHTML = `
                     <td>${desc}</td>
                     <td>${amount}</td>
                     <td>${type}</td>
                     <td><a href="${url}" target="_blank">View Item</a></td>
-                    <td><img src="${pictureUrl}" alt="${desc}"></td>
+                    <td><img src="${pictureUrl}" alt="${desc}" style="cursor: pointer;"></td>
                 `;
                 
-                // Append the row to the table body
                 tableBody.appendChild(tr);
 
                 // Get the newly created image element
                 const imageElement = tr.querySelector('img');
 
                 // Add a click event listener to the image
-imageElement.addEventListener('click', () => {
-    const imageUrl = imageElement.src;
-    
-    // Construct a direct Google Images search URL
-    const googleSearchUrl = `https://www.google.com/search?q=site:your-site.com&tbm=isch&tbs=sbi:AMh-eK_1${encodeURIComponent(imageUrl)}`;
+                imageElement.addEventListener('click', () => {
+                    const imageUrl = imageElement.src;
+                    const description = imageElement.alt;
+                    
+                    // Create a form to programmatically submit the image URL to Google
+                    const form = document.createElement('form');
+                    form.action = 'https://www.google.com/searchbyimage/upload';
+                    form.method = 'post';
+                    form.target = '_blank';
+                    form.enctype = 'multipart/form-data';
+                    
+                    // Hidden input for the image URL
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'image_url';
+                    input.value = imageUrl;
+                    
+                    // Hidden input for the supplemental query
+                    const queryInput = document.createElement('input');
+                    queryInput.type = 'hidden';
+                    queryInput.name = 'q';
+                    queryInput.value = description;
 
-    // Open the URL in a new tab
-    window.open(googleSearchUrl, '_blank');
-});
-
-
-
-
+                    form.appendChild(input);
+                    form.appendChild(queryInput);
+                    
+                    // Temporarily add the form to the document, submit it, and then remove it
+                    document.body.appendChild(form);
+                    form.submit();
+                    document.body.removeChild(form);
+                });
+            }
+        }
+    }
 
     // Function to filter the table based on search terms
     function filterTable(searchTerm) {
